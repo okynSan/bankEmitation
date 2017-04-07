@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mbaf.bankemitation.client.DAO;
+package mbaf.bankemitation.DAO.client;
 
 import java.util.List;
-import mbaf.bankemitation.client.model.Client;
+import mbaf.bankemitation.model.client.ClientContact;
 
 /**
  *
  * @author andrey_zatvornitskiy
  */
-public interface ClientDao {
+public interface ClientContactDao {
     
-    public void saveClient(Client client);
-    public List<Client> getClietnByName(String clientName);
+//    public List<ClientContact> getClientContqct();
+    
+    public void saveClientContacts(ClientContact clientContacts);
     
 }

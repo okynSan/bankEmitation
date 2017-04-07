@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mbaf.bankemitation.client.DAO;
+package mbaf.bankemitation.DAO.client;
 
 import java.util.List;
-import mbaf.bankemitation.client.model.ClientAddress;
+import mbaf.bankemitation.model.client.ClientAddress;
 
 /**
  *

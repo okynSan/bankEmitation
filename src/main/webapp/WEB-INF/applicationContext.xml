@@ -11,42 +11,25 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <context:component-scan base-package="mbaf.bankemitation" />
+    <context:component-scan base-package="anza.crm" />
    
 
     <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
     
+     <context:component-scan base-package="anza.crm" />
     
     <tx:annotation-driven transaction-manager="transactionManager" />
-    
+      <tx:annotation-driven/>
       
-    <!--     <bean id="orderDao" class="anza.crm.order.DAO.Impl.OrderDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>-->
-     
-    <bean id="clientDao" class="mbaf.bankemitation.DAO.client.impl.ClientDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>      
-    
-    <bean id="clientContactDao" class="mbaf.bankemitation.DAO.client.impl.ClientContactDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>  
-    
-    <bean id="usersDao" class="mbaf.bankemitation.DAO.users.impl.UsersDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    
-    <bean id="usersServices" class="mbaf.bankemitation.services.users.impl.UsersServicesImpl">
-        <!--<property name="usersDao" ref="usersDao"/>-->
-    </bean>
-    
+     <bean id="clientDao" class="anza.crm.client.DAO.Impl.ClientDaoImpl">
+         <property name="sessionFactory" ref="sessionFactory"/>
+     </bean>
+      
           
-    <bean id="transactionManager" 
-          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+     <bean id="transactionManager" 
+             class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    
-    <tx:annotation-driven/>
+     </bean>
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource"
@@ -57,16 +40,18 @@
 
 
     <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
+         class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
-        <!--<property name="packagesToScan" value="org.baeldung.spring.persistence.model" />-->
+        <property name="packagesToScan" value="org.baeldung.spring.persistence.model" />
+       
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
                 <prop key="hibernate.connection.charSet">UTF-8</prop>
                 <prop key="hibernate.connection.autocommit">false</prop>
+                <prop key="hibernate.connection.release_mode">after_transaction</prop>
                 <prop key="hibernate.order_inserts">true</prop>
                 <prop key="hibernate.order_updates">true</prop>
             </props>
@@ -77,5 +62,4 @@
     
     <context:property-placeholder location="classpath:jdbc.properties"/>
     
-
 </beans>

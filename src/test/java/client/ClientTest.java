@@ -2,10 +2,10 @@ package client;
 
 import java.util.ArrayList;
 import java.util.List;
-import mbaf.bankemitation.client.DAO.ClientContactDao;
-import mbaf.bankemitation.client.DAO.ClientDao;
-import mbaf.bankemitation.client.model.Client;
-import mbaf.bankemitation.client.model.ClientContact;
+import mbaf.bankemitation.DAO.client.ClientContactDao;
+import mbaf.bankemitation.DAO.client.ClientDao;
+import mbaf.bankemitation.model.client.Client;
+import mbaf.bankemitation.model.client.ClientContact;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,26 +33,8 @@ public class ClientTest {
     @Autowired
     ClientContactDao clientContactDao;
 
-    public ClientTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    @Test
+     
+//    @Test
     public void saveContactTelefone() {
 
         Client client = new Client();
@@ -82,7 +64,7 @@ public class ClientTest {
         System.out.println("asd");
     }
 
-    @Test
+//    @Test
     public void getClientContact() {
        
         Client client = new Client();
@@ -111,7 +93,7 @@ public class ClientTest {
 //        System.out.println(clients.size());
     }
 
-    @Test
+//    @Test
     public void s() {
 
         Integer a = 100;

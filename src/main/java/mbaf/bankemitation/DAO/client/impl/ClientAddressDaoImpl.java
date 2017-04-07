@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mbaf.bankemitation.client.DAO.Impl;
+package mbaf.bankemitation.DAO.client.impl;
 
 import java.util.List;
-import mbaf.bankemitation.client.DAO.ClientAddressDao;
-import mbaf.bankemitation.client.model.ClientAddress;
+import mbaf.bankemitation.DAO.client.ClientAddressDao;
+import mbaf.bankemitation.model.client.ClientAddress;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
